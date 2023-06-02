@@ -1,2 +1,9 @@
 /server/node_modules
 /client/ecommerce/node_modules
+/server/.env
+
+# Environment files
+
+src/environments
+
+#Environment configuration - ENVIRONMENT VARIABLES (might come up in Intervew)

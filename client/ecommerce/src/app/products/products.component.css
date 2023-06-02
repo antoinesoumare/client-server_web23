@@ -22,7 +22,7 @@ body {
   .product {
     flex: 0 0 300px; /* Flexible width of 300px, no grow or shrink */
     padding: 20px;
-    background-color:black;
+    /* background-color:black; */
     border: 1px solid #ddd;
     text-align: center;
   }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Product } from '../interfaces/interface';
 import { products } from '../interfaces/products.interface';
+import {environment} from 'src/environments/environment'
 
 @Component({
   selector: 'app-http-test',
@@ -21,7 +22,7 @@ export class HttpTestComponent implements OnInit {
 
   ngOnInit(): void {  
     // anything written inside will be executed whenever the component is initialized
-    this.http.get<products>("http://localhost:4600/products").subscribe( response => {
+    this.http.get<products>(environment.server+ '/products').subscribe( response => {
       console.log(response.products);
       this.products = response.products;
 

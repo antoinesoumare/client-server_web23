@@ -1,21 +1,23 @@
 import express from 'express';
 import mysql from 'mysql';
 import cors from 'cors';
+import 'dotenv/config'
 
 const server = express();
 server.use(express.json()); // we've create a server out of express, and we're using the json parser
 server.use(cors()); // we're using cors to allow cross origin resource sharing
+const port = process.env.NODEPORT
 
 server.listen(4600, function(){
     console.log('Server is running on port 4600')
 });
 
 const db = mysql.createConnection({
-    host: 'localhost',
-    port: 8889,
-    user: 'root',
-    password: 'root',
-    database: 'Teezy',
+    host: process.env.DBPORT,
+    port: process.env.DBPORT,
+    user: process.env.DBUSER,
+    password: process.env.DBPASSWORD,
+    database: process.env.DBNAME,
 })
 
 db.connect(function(error){

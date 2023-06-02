@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { products } from '../interfaces/products.interface';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-products',
