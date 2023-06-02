@@ -1,0 +1,55 @@
+### R - Read
+GET  http://localhost:4600/products
+
+### R - Get product details by ID
+GET  http://localhost:4600/products/2
+
+
+### U - Update
+PUT http://localhost:4600/updateprice/20
+Content-Type: application/json
+
+{
+    "name": "Strwaberry flavor",
+    "price": 21
+}
+
+### U - Update by ID
+PUT http://localhost:4600/updateprice/15
+Content-Type: application/json
+
+{
+    "price": 10.99
+}
+
+
+### D - Delete
+DELETE http://localhost:4600/deleteproduct
+Content-Type: application/json
+
+{
+    "id": 9
+}
+
+### D - Delete by ID
+DELETE http://localhost:4600/deleteproduct/15
+
+### C - Create
+POST http://localhost:4600/addnewproduct HTTP/1.1
+Content-Type: application/json
+
+{
+    "name": "Blueberry flavor",
+    "description": "Our Blueberry flavor is an unique flavor.",
+    "availability": 0,
+    "price": 10.99
+}
+
+###
+POST https://localhost:4600/validateuser
+Content-Type: application/json
+
+{
+    "email": "Antoinesoumare2@gmail.com",
+    "password": "1234"
+}
