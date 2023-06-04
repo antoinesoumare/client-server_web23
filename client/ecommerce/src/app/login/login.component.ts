@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
 
   login() {
     console.log(this.email, this.password);
-    this.http.post(environment.server + "/validateuser", { email: this.email, password: this.password}).subscribe(res=>{
+    this.http.post("http://localhost:4600/validateuser", { email: this.email, password: this.password}).subscribe(res=>{
       if(res){
         this.router.navigate(['/admin']);
       }
@@ -36,5 +36,6 @@ export class LoginComponent implements OnInit {
 
     }
   }
+
 
 

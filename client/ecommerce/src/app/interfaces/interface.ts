@@ -1,7 +1,11 @@
 export interface Product {
     products:[{
-        id: number,
-        name: string,
-        price: number,
+    ID: number,
+    name: string,
+    description: string,
+    availability: boolean,
+    price: string,
+    images: string,
+    online: boolean,
     }]
 }

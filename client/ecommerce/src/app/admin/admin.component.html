@@ -1,1 +1,38 @@
-<p>admin works!</p>
+<h1>WELCOME BOSS</h1>
+<div class="admin-table">
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Availability</th>
+          <th>Price</th>
+          <th>Images</th>
+          <th>Online Status</th>
+          <th>Update/Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let Product of products">
+          <td>{{Product.ID}}</td>
+          <td>{{Product.name}}</td>
+          <td>{{Product.description}}</td>
+          <td>{{Product.availability}}</td>
+          <td>{{Product.price}}</td>
+          <td><img src="/assets/{{Product.images}}" alt="Image 1" id="admin-img"></td>
+
+          <td>
+              <div class="form-check form-switch">
+              <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" [checked]="Product.Online" (click)="setLiveStatus(Product.ID, !Product.Online)">
+              
+            </div>
+          </td>
+          <button (click)="updateProduct(Product.ID)">Update</button>
+          <button (click)="deleteProduct(Product.ID)">Delete</button>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+  

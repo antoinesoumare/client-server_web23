@@ -10,7 +10,7 @@ PUT http://localhost:4600/updateprice/20
 Content-Type: application/json
 
 {
-    "name": "Strwaberry flavor",
+    "name": "Apple flavor",
     "price": 21
 }
 
@@ -42,7 +42,10 @@ Content-Type: application/json
     "name": "Blueberry flavor",
     "description": "Our Blueberry flavor is an unique flavor.",
     "availability": 0,
-    "price": 10.99
+    "price": 10.99,
+    "image": "Apple.png" ,
+    "onlinestatus": true
+    
 }
 
 ###
@@ -52,4 +55,12 @@ Content-Type: application/json
 {
     "email": "Antoinesoumare2@gmail.com",
     "password": "1234"
+}
+
+###
+PUT http://localhost:4600/setstatus/1 HTTP/1.1
+Content-Type: application/json
+
+{
+    "status": false
 }

@@ -6,18 +6,18 @@ import 'dotenv/config'
 const server = express();
 server.use(express.json()); // we've create a server out of express, and we're using the json parser
 server.use(cors()); // we're using cors to allow cross origin resource sharing
-const port = process.env.NODEPORT
+// const port = process.env.NODEPORT
 
 server.listen(4600, function(){
     console.log('Server is running on port 4600')
 });
 
 const db = mysql.createConnection({
-    host: process.env.DBPORT,
-    port: process.env.DBPORT,
-    user: process.env.DBUSER,
-    password: process.env.DBPASSWORD,
-    database: process.env.DB,
+    host: 'localhost',
+    port: 8889,
+    user: 'root',
+    password: 'root',
+    database: 'Teezy',
 })
 
 db.connect(function(error){
@@ -55,8 +55,8 @@ server.get('/products/:id', (req,res) => {
 
 // POST API
 server.post('/addnewproduct', function(req, res){
-    let SQLQuery = "CALL `InsertNewProduct`(?, ?, ?, ?)";
-    db.query(SQLQuery, [req.body.name, req.body.price, req.body.description, req.body.availability], function(error, data){
+    let SQLQuery = "CALL `addNewProduct`(?, ?, ?, ?, ?, ?)";
+    db.query(SQLQuery, [req.body.name, req.body.description, req.body.availability, req.body.price, req.body.images, req.body.online], function(error, data){
         if(error){
             res.json({error_message: error});
         } else {
@@ -134,4 +134,17 @@ server.post('/validateuser', (req, res) => {
     })
 })
 
+// Online Status API
+
+server.put('/setstatus/:id', (req, res) => {
+    let SQLQuery = "CALL `setLiveStatus`(?, ?)";
+    db.query(SQLQuery, [req.params.id, req.body.status],(error,data) => {
+        if(error){
+            res.json(error)
+        }
+        else{
+            res.json(req.body.status)
+        }
+    })
+})
 

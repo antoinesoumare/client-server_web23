@@ -1,11 +1,28 @@
-<div class="login-form">
-    <label for="email">email</label>
-    <input type="email" [(ngModel)]="email" id="email" placeholder="your email"> <br>
-    <label for="password">password</label>
-    <input type="password" [(ngModel)]="password" id="password" placeholder="password">
-    <button (click)="login()" id="loginButton">Log in</button>
+<div class="login-container">
+    <div class="login-logo-container">
+        <img src="../../assets/teezy-logo1.png" alt="teezy-logo1" id="login-logo">
+    </div>
+
+
+        <div class="login-form">
+            <label for="email">Email</label>
+            <input type="email" [(ngModel)]="email" id="email" placeholder="Enter email"> <br>
+            <label for="password">Password</label>
+            <input type="password" [(ngModel)]="password" id="password" placeholder="Enter password">
+            <button (click)="login()" id="loginButton">Log in</button>
+        </div>
+
+
+        <div class="forgot">
+            <a href="forgotpassword" id="forgotpw">Forgot password?</a>
+        </div>
 </div>
 
-<!-- <div class="loginButton">
-    <button (click)="login()" id="loginButton">Log in</button>
-</div> -->
+<div [hidden]="hideLoginStatus">
+    <div class="message" *ngIf="loginSuccess">Great! You have signed in!</div>
+    <div class="message" *ngIf="!loginSuccess">Sorry, your email or password is incorrect.</div>
+</div>
+
+
+
+  
